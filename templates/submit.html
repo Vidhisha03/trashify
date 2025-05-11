@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block pagetitle %}
+  {{ title }}
+{% endblock pagetitle %}
+
+{% block body %}
+<div class="container py-5">
+  <!-- Title -->
+  <div class="text-center mb-5">
+    <h1 class="display-4" style="color: #022205; font-weight: bold;">{{ title }}</h1>
+  </div>
+
+  <!-- Prediction & Description Card -->
+  <div class="d-flex justify-content-center mb-5">
+    <div class="card shadow-lg" style="max-width: 500px; width: 100%;">
+      <div class="card-body">
+        <h2 class="card-title text-center text-primary" style="color: #011301;">{{ pred }}</h2>
+        <p class="card-text text-justify">
+          {{ desc }}<br><br>
+          Based on our classification model, this material has been identified as <strong>{{ pred }}</strong>. Please follow the recommended recycling or disposal methods below to ensure sustainability. Proper recycling reduces environmental impact, saves energy, and supports a circular economy.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Material Guide Section -->
+  <div class="row text-center mb-5">
+    {% set materials = [
+      {'name': 'Cardboard', 'image': 'cardboard.jpeg', 'desc': 'Flatten boxes and remove any tape or labels before recycling. Cardboard is widely accepted in curbside programs and should be kept dry to prevent contamination.'},
+      {'name': 'Glass', 'image': 'glass.jpeg', 'desc': 'Rinse bottles and jars and remove lids before recycling. Avoid mixing different colors and never include broken glass unless specified by your local program.'},
+      {'name': 'Metal', 'image': 'metal.jpeg', 'desc': 'Rinse cans thoroughly and remove any paper labels. Aluminum and steel cans are highly recyclable and should be crushed if space-saving is needed.'},
+      {'name': 'Paper', 'image': 'paper.jpeg', 'desc': 'Sort paper by type (newspapers, office paper, magazines) and avoid wet or greasy paper. Shredded paper should be bagged or placed in dedicated bins.'},
+      {'name': 'Plastic', 'image': 'plastic.jpeg', 'desc': 'Check the recycling number on the container. Rinse thoroughly and remove caps. Only recycle plastics that your local program accepts.'},
+      {'name': 'Trash', 'image': 'trash.jpeg', 'desc': 'Items that cannot be recycled should be placed in general waste bins. Avoid contaminating recycling streams with non-recyclables such as food-soiled containers or composite materials.'}
+    ] %}
+    
+    {% for item in materials %}
+    <div class="col-md-4 col-lg-2 mb-4">
+      <div class="card h-100 shadow-sm">
+        <img src="/static/{{ item.image }}" class="card-img-top" alt="{{ item.name }}" style="height: 100px; object-fit: cover;">
+        <div class="card-body">
+          <h5 class="card-title">{{ item.name }}</h5>
+          <p class="card-text small">{{ item.desc }}</p>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock body %}
