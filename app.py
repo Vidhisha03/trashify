@@ -12,6 +12,11 @@ import os
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = 'uploads'
 
+# Make sure the folder exists
+if not os.path.exists(app.config['UPLOAD_FOLDER']):
+    os.makedirs(app.config['UPLOAD_FOLDER'])
+
+
 model_path = r'model/model.h5'
 model = load_model(model_path)
 class_names = ['cardboard', 'glass', 'metal', 'paper', 'plastic', 'trash']
