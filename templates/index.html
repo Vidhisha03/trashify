@@ -7,14 +7,14 @@ AI Engine - Garbage Classification
 {% block body %}
 <div>
     <div class="container">
-        <!-- For demo purpose -->
+        
         <div class="row mb-5 text-center text-white">
             <div class="col-lg-10 mx-auto">
                 <h1 class="display-4" style="padding-top: 2%;font-weight: 400;color: rgb(4, 54, 4);"><b>Trashify </b></h1>
                 <p class="lead" style="font-weight: 500;color: black;">Intelligent Waste Identification</p>
             </div>
         </div>
-        <!-- End -->
+    
         <div class="row">
             <div class="col mx-auto">
                 <div class="p-5 bg-white shadow rounded-lg" style="height: 95%;">   
@@ -25,10 +25,14 @@ AI Engine - Garbage Classification
             </div>
             <div class="col mx-auto">
                 <div class="p-5 bg-white shadow rounded-lg" style="height: 95%;">
-                    <div class="d-block mx-auto mb-4 text-center" style="height: 100px; width: 200px; border: 2px dashed #ccc; display: flex; align-items: center; justify-content: center; color: #888;">
+                    <!-- <div class="d-block mx-auto mb-4 text-center" style="height: 100px; width: 200px; border: 2px dashed #ccc; display: flex; align-items: center; justify-content: center; color: #888;">
                     Upload the image here
-                    </div>                    
-                    <!-- Default bootstrap file upload-->
+                    </div>                     -->
+
+                    <img id="preview" src="#" alt="Image Preview" style="display: none; max-width: 100%;" />
+                    <h6 class="text-center mb-4 text-muted">
+                        Upload an image of garbage to classify its type.
+                    </h6>
                     <form action="/submit" method="POST" enctype="multipart/form-data">
                         <div class="custom-file overflow-hidden mb-4" style="border: 2px solid #ddd; padding: 10px; border-radius: 5px;">
                             <input type="file" id="actual-btn" hidden name="image" />
@@ -45,11 +49,7 @@ AI Engine - Garbage Classification
                         </div>
 
                         <!-- Preview Image (will show the captured photo) -->
-                        <img id="preview" src="#" alt="Image Preview" style="display: none; max-width: 100%;" />
                         
-                        <h6 class="text-center mb-4 text-muted">
-                            Upload an image of garbage to classify its type.
-                        </h6>
 
                         <!-- Custom bootstrap upload file-->
                         <center>
