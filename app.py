@@ -12,7 +12,7 @@ import os
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = 'uploads'
 
-model_path = r'C:\Users\HP\Downloads\garbage-classifier\model\model.h5'
+model_path = r'model/model.h5'
 model = load_model(model_path)
 class_names = ['cardboard', 'glass', 'metal', 'paper', 'plastic', 'trash']
 
